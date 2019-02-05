@@ -3,6 +3,20 @@
 
 #include "Display.h"
 
+// Afficher un menu
+const uint8_t paintMenu() {
+  const char* items[] = {
+    PLAY_FR
+  };
+
+  const uint8_t indexItem = gb.gui.menu("Menu", items);
+  uint8_t choice = HOME_STATE;
+  if(items[indexItem] == PLAY_FR) {
+    choice = LAUNCH_PLAY_STATE;
+  }
+  return choice;
+}
+
 // Réalise tout l'affichage
 void paint(Character &aCharacter) {
   paintHero(aCharacter);

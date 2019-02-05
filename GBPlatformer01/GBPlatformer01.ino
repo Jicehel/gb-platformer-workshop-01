@@ -5,6 +5,7 @@
 
 #include "Constantes.h"
 #include "Display.h"
+#include "Commands.h"
 #include "Character.h"
 
 Character hero;
@@ -28,13 +29,14 @@ void loop() {
   switch(stateOfGame) {
     case HOME_STATE:
       // gestion d'un menu à implementer...
-      stateOfGame = LAUNCH_PLAY_STATE;
+      stateOfGame = paintMenu();
       break;
     case LAUNCH_PLAY_STATE:
       initCharacter(hero); // ...... on réinitialise les données du personnage
       stateOfGame = PLAY_STATE;
       break;
     case PLAY_STATE:
+      stateOfGame = manageCommands();
       paint(hero);
       break;
     default:
