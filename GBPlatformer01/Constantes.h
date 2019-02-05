@@ -4,6 +4,12 @@
 #ifndef PLATFORMER_CONSTANTES
 #define PLATFORMER_CONSTANTES
 
+#include <Gamebuino-Meta.h>
+
+// Couleur des box
+const Color HERO_L_COLOR = LIGHTBLUE;
+const Color HERO_R_COLOR = BLUE;
+
 // Pour un personnage de 8 pixels de haut sur 6 pixels de large
 const uint8_t WIDTH_HERO = 6;
 const uint8_t HEIGHT_HERO = 8;

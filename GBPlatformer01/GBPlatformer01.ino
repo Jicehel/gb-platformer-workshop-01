@@ -4,6 +4,7 @@
 #include <Gamebuino-Meta.h>
 
 #include "Constantes.h"
+#include "Display.h"
 #include "Character.h"
 
 Character hero;
@@ -34,9 +35,7 @@ void loop() {
       stateOfGame = PLAY_STATE;
       break;
     case PLAY_STATE:
-      gb.display.printf("x,y = %d,%d", hero.x, hero.y);
-      gb.display.println("");
-      gb.display.printf("to the left = %d", hero.toTheLeft);
+      paint(hero);
       break;
     default:
       /*************************************************/
