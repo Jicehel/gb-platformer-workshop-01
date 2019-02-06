@@ -29,7 +29,7 @@ void paintHero(Character &aCharacter) {
 }
 
 // Dessine un rectangle de la couleur passée en paramètre
-void paintBox(const uint8_t aX, const uint8_t aY, const uint8_t aWidth, const uint8_t aHeight, const Color aColor) {
+void paintBox(const int8_t aX, const int8_t aY, const uint8_t aWidth, const uint8_t aHeight, const Color aColor) {
   gb.display.setColor(aColor);
   gb.display.fillRect(aX, aY, aWidth, aHeight);
 }
