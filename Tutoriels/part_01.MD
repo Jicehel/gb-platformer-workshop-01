@@ -8,9 +8,9 @@ Dans cette partie, nous allons créer le personnage et l'afficher. Nous verrons 
 ## Programme basique
 
 Avant de créer le personnage, il faut écrire le programme de base, il faut :
-* penser à initialiser la Gamebuino META dans la fonction setup ;
-* ajouter une boucle d'attente dans la fonction loop ;
-* effacer l'écran toujours dans la fonction loop.
+* penser à initialiser la Gamebuino META dans la fonction `setup` ;
+* ajouter une boucle d'attente dans la fonction `loop` ;
+* effacer l'écran toujours dans la fonction `loop`.
 
 Pour tester que tout marche bien, afficher un message avec `gb.display.println("Votre message");`.
 
@@ -52,7 +52,7 @@ Vous pouvez télécharger [ici le programme de base](https://github.com/chris-sc
 
 Bien, maintenant que nous avons un programme qui fonctionne, regardons de quoi nous avons besoin pour gérer le personnage.
 
-Bien que nous allons qu'afficher ce personnage sans gérer les mouvements, ils seront aborder dans la prochaine partie, nous avons besoin :
+Bien que nous allons qu'afficher ce personnage sans gérer les mouvements, ils seront abordés dans la prochaine partie, nous avons besoin :
 * de la position x gérée avec un entier ;
 * de la position y également gérée avec un entier ;
 * de la direction gérée avec un booléen, true aller à gaucher et false aller à droite.
@@ -65,9 +65,9 @@ struct Car {
 };
 ```
 
-Dans cet exemple, nous avons créer une structure voiture, nommé `Car` qui possède deux attributs :
+Dans cet exemple, nous avons créé une structure voiture, nommé `Car`, qui possède deux attributs :
 * la vitesse gérée avec un entier ;
-* et un indicateur pour préciser si la voiture est démarrée, géré avec un booléen.
+* et un indicateur pour préciser si la voiture est démarrée ou non, géré avec un booléen.
 
 Placons la structure du personnage dans le fichier `Character.h`.
 
@@ -91,7 +91,7 @@ Remarque : le delta pour la position y du personnage, c'est le nombre de pixels 
 
 Nous allons avant de voir la solution définir quelques constantes.
 
-Créez un fichier `Constantes.h`, et ajoutez y les constantes suivantes :
+Créons un fichier `Constantes.h`, et ajoutons y les constantes suivantes :
 ```
 #ifndef PLATFORMER_CONSTANTES
 #define PLATFORMER_CONSTANTES
@@ -116,7 +116,7 @@ void initCharacter(Character &aCharacter);
 
 Vous remarquerez que nous utilisons un passage par référence grâce au symbole `&`. Sans ce passage par référence nous aurions un problème, en effet un passage par copie : `void initCharacter(Character aCharacter);` appliqerai l'initialisation qu'à l'intérieur de cette fonction, une fois de retour dans le programme principale ce serait comme si rien n'avait été fait. De plus, un passage par copie est plus groumand en mémoire.
 
-Le code de cette fonction, a placé dans `Character.cpp`, est le suivant :
+Le code de cette fonction, à placer dans `Character.cpp`, est le suivant :
 ```
 void initCharacter(Character &aCharacter) {
   // on force la position intiale du héro au milieu de l'écran et plaqué au sol
@@ -134,7 +134,7 @@ Il ne faut pas oublier d'inclure le fichier de constantes dans `Character.h`.
 
 Modifions le programme principale pour créer un personnage, l'initialiser et afficher ces informations. Mais avant nous allons en profiter pour ajouter un système d'états à notre jeu et ainsi moduler l'affichage en fonction de l'état.
 
-Ajoutons d'abord les constantes suivantes dans `Constantes.h`, qui correspondent au état dont nous aurons besoin pour commencer :
+Ajoutons d'abord les constantes suivantes dans `Constantes.h`, qui correspondent aux états dont nous aurons besoin pour commencer :
 ```
 const uint8_t HOME_STATE = 1;
 const uint8_t LAUNCH_PLAY_STATE = 2;
@@ -185,7 +185,7 @@ switch(stateOfGame) {
     gb.display.printf("x,y = %d,%d", hero.x, hero.y);
     gb.display.println("");
     gb.display.printf("to the left = %d", hero.toTheLeft);
-  	break;
+    break;
   default:
     gb.display.println("Votre message");
 }
@@ -201,9 +201,9 @@ Notons qu'un booléen affiche 0 s'il vaut `false` et 1 s'il vaut `true`.
 
 ### Afficher le personnage
 
-Avant passer à l'affichage du personnage, définissons deux nouvelles constantes :
-* une constante qui définit la couleur quand le personnage va à gauche (par exemple, `LIGHTBLUE`) ;
-* une autre constante qui définit la couleur quand le personnage va à droite (par exemple, `BLUE`).
+Avant de passer à l'affichage du personnage, définissons deux nouvelles constantes :
+* une constante qui définit la couleur quand le personnage va à gauche (valant par exemple, `LIGHTBLUE`) ;
+* une autre constante qui définit la couleur quand le personnage va à droite (valant par exemple, `BLUE`).
 
 Pour ce faire, ajoutons dans le fichier `Constantes.h` les constantes suivantes :
 ```
@@ -211,7 +211,7 @@ const Color HERO_L_COLOR = LIGTHBLUE;
 const Color HERO_R_COLOR = BLUE;
 ```
 
-Il est nécessaire d'ajouter la bibliothèque de la console dans le fichier de constantes.
+Il est nécessaire d'ajouter la bibliothèque de la console dans le fichier de constantes, sans ça impossible d'utiliser les couleurs.
 
 Nous allons gérer l'affichage du jeu dans les fichiers `Display.h` et `Display.cpp`.
 
@@ -239,7 +239,7 @@ Quelques précisions sur les fonctions qui sont déclarées dans `Display.h` :
 
 La fonction `paint` fera pour l'instant qu'un appel à `paintHero`.
 
-Toutes ces fonctions doivent définit dans `Display.cpp`.
+Toutes ces fonctions doivent être définit dans `Display.cpp`.
 
 Pour changer la couleur il faut utiliser [gb.display.setColor](https://gamebuino.com/fr/academy/reference/graphics-setcolor) et pour dessiner un rectangle plein il faut utiliser [gb.display.fillRect](https://gamebuino.com/fr/academy/reference/graphics-fillrect).
 
@@ -263,7 +263,7 @@ if(nb > 0) {
 
 Ce dernier peut-être remplacé par un condition ternaire que voici :
 ```
-char signe (nb > 0) ? '+' : '-';
+char signe = (nb > 0) ? '+' : '-';
 ```
 
 Voici le code de la fonction `paintHero` :
@@ -302,7 +302,7 @@ static const char * PLAY_FR = "Jouer";
 #endif
 ```
 
-Nous allons ajouter la gestion du menu dans `Display.h` et dans `Display.cpp`. D'abord, il faut inclure `Lang.h` dans `Display.h`. Ensuite ajouter le prototype de la fonction suivante (toujours dans `Display.h`) :
+Nous allons ajouter la gestion du menu dans `Display.h` et dans `Display.cpp`. D'abord, il faut inclure `Lang.h` dans `Display.h`. Ensuite ajoutons le prototype de la fonction suivante (toujours dans `Display.h`) :
 ```
 const uint8_t paintMenu();
 ```
@@ -361,7 +361,7 @@ Vous pouvez téléverser votre programme sur la console, vous aurez au démarrag
 
 ## Conclusion
 
-Vous voici arrivez à la fin de cette première partie, nous avons créer et afficher un personnage et gérer les commandes basiques pour naviguer dans notre jeu, en partie grâce à un menu.
+Vous voici arrivé à la fin de cette première partie, nous avons créer et afficher un personnage et gérer les commandes basiques pour naviguer dans notre jeu, en partie grâce à un menu.
 
 Si vous avez terminé ou si vous rencontrez des problèmes vous pouvez télécharger la solution ici.
 
