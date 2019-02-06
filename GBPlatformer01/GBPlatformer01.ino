@@ -28,7 +28,6 @@ void loop() {
 
   switch(stateOfGame) {
     case HOME_STATE:
-      // gestion d'un menu à implementer...
       stateOfGame = paintMenu();
       break;
     case LAUNCH_PLAY_STATE:
