@@ -9,8 +9,8 @@
 #include "Constantes.h"
 
 struct Character {
-  uint8_t x; // ............ position x
-  uint8_t y; // ............ position y
+  int8_t x; // ............ position x
+  int8_t y; // ............ position y
   bool toTheLeft; // ... true si le personnage va vers la gauche, false sinon
 };
 
