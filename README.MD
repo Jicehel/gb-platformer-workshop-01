@@ -7,6 +7,8 @@ Ce workshop sera bientôt proposé sur [Gamebuino.com](https://gamebuino.com/) !
 
 Il a pour but de poser les bases du jeu de plateformes. Le programme sera procédurale pour le rendre le plus accessible possible.
 
+De plus, les graphismes seront simplifiés à l'affichage de rectangles.
+
 ## Sommaire
 
 **En cours de rédaction**
