@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Dans cette partie, nous allons créer un personnage, l'afficher et nous verrons également comment créer un menu.
+Dans cette étape, nous allons créer un personnage, l'afficher et nous verrons également comment créer un menu.
 
 
 ## Programme basique
