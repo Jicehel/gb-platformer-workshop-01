@@ -368,7 +368,7 @@ Vous pouvez téléverser votre programme sur la console, vous aurez au démarrag
 
 Vous voici arrivé à la fin de cette première étape : nous avons créé et affiché un personnage et nous avons géré les commandes basiques pour naviguer dans notre jeu, en partie grâce à un menu.
 
-Si vous avez terminé ou si vous rencontrez des problèmes vous pouvez télécharger la solution [ici](https://github.com/chris-scientist/gb-platformer-workshop-01/releases/tag/v1.0).
+Si vous avez terminé ou si vous rencontrez des problèmes vous pouvez télécharger la solution [ici](https://github.com/chris-scientist/gb-platformer-workshop-01/archive/v1.0.zip).
 
 Dans la prochaine étape, c'est-à-dire la deuxième, nous aborderons les déplacements du personnage.
 
