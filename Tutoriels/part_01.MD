@@ -1,5 +1,5 @@
 
-# Partie 1 - le personnage : création, affichage et gestion d'un menu
+# Etape 1 - le personnage : création, affichage et gestion d'un menu
 
 
 ## Introduction
@@ -9,14 +9,15 @@ Dans cette partie, nous allons créer un personnage, l'afficher et nous verrons 
 
 ## Programme basique
 
-Avant de créer le personnage, il faut écrire le programme de base comme nous l'avons vu dans l'[étape 2 de TapTap, un jeu ou il faut aller très vite !](https://gamebuino.com/fr/academy/workshop/tap-tap-how-fast-can-you-tap/inputs-update-draw)
+Avant de créer le personnage, il faut écrire le programme de base comme nous l'avons vu dans l'[étape 2 de TapTap, un jeu ou il faut aller très vite !](https://gamebuino.com/fr/academy/workshop/tap-tap-how-fast-can-you-tap/inputs-update-draw).
+
 Pour rappel, il nous faut :
-* inclure le fichier Gamebuino-Meta.h en début de code
+* inclure le fichier `Gamebuino-Meta.h` en début de code
 * penser à initialiser la Gamebuino META dans la fonction `setup` ;
 * ajouter une boucle d'attente dans la fonction `loop` ;
 * effacer l'écran toujours dans la fonction `loop`.
 
-Pour tester que tout marche bien, nous afficherons un message avec `gb.display.println("Votre message");`.
+Pour tester que tout fonctionne bien, nous afficherons un message avec `gb.display.println("Votre message");`.
 
 Voici le code de ce programme de base :
 ```
@@ -39,6 +40,7 @@ void loop() {
 
 
   // AFFICHAGE //
+
   // Commencer par effacer l'écran
   gb.display.clear();
 
@@ -64,15 +66,16 @@ Vous pouvez télécharger [ici le programme de base](https://github.com/chris-sc
 
 Bien, maintenant que nous avons un programme qui fonctionne, regardons de quoi nous aurons besoin pour gérer le personnage.
 
-Bien que nous ne feons qu'afficher ce personnage sans gérer ses mouvements dans cette première étape, nous allons avoir besoin :
-* de sa position horizontale que nous allons gérer avec un entier 'x' ;
-* de sa position verticale également gérée avec un entier 'y' ;
-* de la direction de dplacement du personnage gérée avec un booléen, true aller à gaucher et false aller à droite.
+Bien que nous ne ferons qu'afficher ce personnage sans gérer ses mouvements dans cette première étape, nous allons avoir besoin :
+* de sa position horizontale que nous allons gérer avec un entier `x` ;
+* de sa position verticale également gérée avec un entier `y` ;
+* de la direction de déplacement du personnage gérée avec un booléen, true pour aller à gaucher et false pour aller à droite.
 
-Pour représenter le personnage nous allons utiliser une structure (struct), comme nous l'avons vu dans le tuto: [STRUCTURER LES OBJETS DE VOTRE PROGRAMME](https://gamebuino.com/fr/creations/structurer-les-objets-de-votre-programme)
+Pour représenter le personnage nous allons utiliser une structure (struct), comme nous l'avons vu dans le tutoriel : [Structurer les objets de votre programme](https://gamebuino.com/fr/creations/structurer-les-objets-de-votre-programme)
 
 Nous allons appeler cette structure Character et nous allons la créer dans le fichier d'entête (ou header) `Character.h`.
-=> Un fichier d'entête est l'endroitidéal pour definir le prototype des fonctions, les types personnalisés, les structures et les classes. 
+
+> Un fichier d'entête est l'endroit idéal pour definir le prototype des fonctions, les types personnalisés, les structures et les classes. 
 
 Si vous ne voyez pas comment implémenter la structure du personnage ou si vous avez réussi et que vous souhaitez comparer votre code, voici la structure que nous utiliserons au cours de ce workshop :
 ```
@@ -92,7 +95,7 @@ Maintenant que nous avons la structure du personnage, il faut écrire une foncti
 
 Remarque : le delta pour la position y du personnage, c'est le nombre de pixels en dessous du centre du personnage.
 
-Nous allons également définir quelques constantes avant de voir la solution .
+Nous allons également définir quelques constantes avant de voir la solution.
 
 Créons un fichier `Constantes.h`, et ajoutons-y les lignes suivantes :
 ```
@@ -117,7 +120,7 @@ Voici la signature de la fonction servant à initialiser le personnage, fonction
 void initCharacter(Character &aCharacter);
 ```
 
-Vous remarquerez que nous utilisons un passage par référence grâce au symbole `&`. Sans ce passage par référence nous aurions un problème: en effet un passage par copie que nous aurions obtenu avec `void initCharacter(Character aCharacter);` n'effectueait l'initialisation qu'à l'intérieur de cette fonction. Une fois de retour dans le programme principal ce serait comme si rien n'avait été fait. De plus, un passage par copie est plus gourmand en mémoire.
+> Vous remarquerez que nous utilisons un passage par référence grâce au symbole `&`. Sans ce passage par référence nous aurions un problème: en effet un passage par copie que nous aurions obtenu avec `void initCharacter(Character aCharacter);` n'effectuerait l'initialisation qu'à l'intérieur de cette fonction. Une fois de retour dans le programme principal ce serait comme si rien n'avait été fait. De plus, un passage par copie est plus gourmand en mémoire.
 
 Le code de cette fonction, à placer dans `Character.cpp`, est le suivant :
 ```
@@ -160,7 +163,7 @@ Character hero;
 ```
 
 Enfin, modifions le programme dans la fonction `loop` pour :
-* passer à l'état `LAUNCH_PLAY_STATE`lorsque nous sommes dans l'état `HOME_STATE` et que nous appuyons sur le bouton A,  (nous ajouterons le menu à cet état à la fin de cette partie);
+* passer à l'état `LAUNCH_PLAY_STATE`lorsque nous sommes dans l'état `HOME_STATE` et que nous appuyons sur le bouton A (nous ajouterons le menu à cet état à la fin de cette partie) ;
 * lorsque nous sommes dans l'état `LAUNCH_PLAY_STATE` nous devons initialiser les informations du personnage grâce à la fonction `initCharacter` et passer à l'état `PLAY_STATE` ;
 * lorsque nous sommes dans l'état `PLAY_STATE`, il faut afficher les informations du personnage ;
 * par défaut, si nous ne sommes dans aucun de ces états (ce qui ne devrait pas ce produire) alors nous afficherons le texte de départ.
@@ -198,7 +201,7 @@ x,y = 40,60
 to the left = 0
 ```
 
-Notons qu'un booléen affiche 0 s'il vaut `false` et 1 s'il vaut `true`.
+> Notons qu'un booléen affiche 0 s'il vaut `false` et 1 s'il vaut `true`.
 
 ### Afficher le personnage
 
@@ -234,7 +237,7 @@ void paintBox(const int8_t aX, const int8_t aY, const uint8_t aWidth, const uint
 ```
 
 Quelques précisions sur les fonctions qui sont déclarées dans `Display.h` :
-* `paint` sera la seule fonction utilisé dans le programme principal et c'est elle qui se chargera de faire tout l'affichage ;
+* `paint` sera la seule fonction utilisée dans le programme principal et c'est elle qui se chargera de faire tout l'affichage ;
 * `paintHero` réalise l'affichage du personnage via `paintBox` ;
 * `paintBox` dessine un rectangle en fonction des paramètres qui lui sont passés.
 
@@ -252,7 +255,7 @@ void paintBox(const uint8_t aX, const uint8_t aY, const uint8_t aWidth, const ui
 }
 ```
 
-Pour l'affichage du personnage nous allons utiliser une ternaire, ceci afin de choisir la couleur.
+Pour l'affichage du personnage nous allons utiliser une condition ternaire, ceci afin de choisir la couleur.
 
 Voici un code classique :
 ```
@@ -262,7 +265,7 @@ if(nb > 0) {
 }
 ```
 
-Ce dernier peut-être remplacé par un condition ternaire que voici :
+Ce dernier peut-être remplacé par une condition ternaire que voici :
 ```
 char signe = (nb > 0) ? '+' : '-';
 ```
@@ -343,7 +346,7 @@ const uint8_t manageCommands();
 #endif
 ```
 
-Le code de la méthode `manageCommands` est relativement simple, si le bouton menu est pressé alors on retourne au menu, sinon on reste dans le jeu, soit le code suivant :
+Le code de la fonction `manageCommands` est relativement simple, si le bouton menu est pressé alors on retourne au menu, sinon on reste dans le jeu, soit le code suivant :
 ```
 #include "Commands.h"
 
@@ -363,10 +366,10 @@ Vous pouvez téléverser votre programme sur la console, vous aurez au démarrag
 
 ## Conclusion
 
-Vous voici arrivé à la fin de cette première étape: nous avons créé et affiché un personnage et nous avons géré les commandes basiques pour naviguer dans notre jeu, en partie grâce à un menu.
+Vous voici arrivé à la fin de cette première étape : nous avons créé et affiché un personnage et nous avons géré les commandes basiques pour naviguer dans notre jeu, en partie grâce à un menu.
 
 Si vous avez terminé ou si vous rencontrez des problèmes vous pouvez télécharger la solution ici.
 
-Dans la prochaine partie, c'est-à-dire la deuxième, nous aborderons les déplacements du personnage.
+Dans la prochaine étape, c'est-à-dire la deuxième, nous aborderons les déplacements du personnage.
 
 N'hésitez pas à me faire un retour : les améliorations que vous apporteriez (un regard extérieur est toujours bienvenu), les fautes, etc.
