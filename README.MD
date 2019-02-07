@@ -11,7 +11,7 @@ De plus, les graphismes seront simplifiés à l'affichage de rectangles.
 
 ## Sommaire
 
-[Etape 1 - le personnage : création et affichage et gestion d'un menu](Tutoriels/part_01.MD)
+[Etape 1 - le personnage : création, affichage et gestion d'un menu](Tutoriels/part_01.MD)
 
 ## Equipe
 
