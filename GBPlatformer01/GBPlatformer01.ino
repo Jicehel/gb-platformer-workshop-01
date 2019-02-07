@@ -1,5 +1,6 @@
 // author: chris-scientist
 // created at: 05/02/2019
+// updated at: 07/02/2019
 
 #include <Gamebuino-Meta.h>
 
@@ -35,7 +36,7 @@ void loop() {
       stateOfGame = PLAY_STATE;
       break;
     case PLAY_STATE:
-      stateOfGame = manageCommands();
+      stateOfGame = manageCommands(hero);
       paint(hero);
       break;
     default:
