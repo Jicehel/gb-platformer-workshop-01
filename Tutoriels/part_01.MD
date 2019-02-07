@@ -163,7 +163,7 @@ Character hero;
 ```
 
 Enfin, modifions le programme dans la fonction `loop` pour :
-* passer à l'état `LAUNCH_PLAY_STATE`lorsque nous sommes dans l'état `HOME_STATE` et que nous appuyons sur le bouton A (nous ajouterons le menu à cet état à la fin de cette partie) ;
+* passer à l'état `LAUNCH_PLAY_STATE`lorsque nous sommes dans l'état `HOME_STATE` et que nous appuyons sur le bouton A (nous ajouterons le menu à cet état à la fin de cette étape) ;
 * lorsque nous sommes dans l'état `LAUNCH_PLAY_STATE` nous devons initialiser les informations du personnage grâce à la fonction `initCharacter` et passer à l'état `PLAY_STATE` ;
 * lorsque nous sommes dans l'état `PLAY_STATE`, il faut afficher les informations du personnage ;
 * par défaut, si nous ne sommes dans aucun de ces états (ce qui ne devrait pas ce produire) alors nous afficherons le texte de départ.
@@ -297,7 +297,7 @@ Si vous téléversez votre programme, vous devriez voir un joli rectangle bleu e
 
 Nous allons ajouter un menu à notre jeu, nous le compléterons au fil de l'avancée du workshop.
 
-Créons un fichier nommé `Lang.h`, dans ce dernier nous mettrons dans une prochaine partie une version en français et en anglais de tout les textes affichés à l'écran. Dans un premier temps nous nous limiterons au français. Voici le contenu du fichier :
+Créons un fichier nommé `Lang.h`, dans ce dernier nous mettrons dans une prochaine étape une version en français et en anglais de tout les textes affichés à l'écran. Dans un premier temps nous nous limiterons au français. Voici le contenu du fichier :
 ```
 #ifndef PLATFORMER_LANG
 #define PLATFORMER_LANG
@@ -368,7 +368,7 @@ Vous pouvez téléverser votre programme sur la console, vous aurez au démarrag
 
 Vous voici arrivé à la fin de cette première étape : nous avons créé et affiché un personnage et nous avons géré les commandes basiques pour naviguer dans notre jeu, en partie grâce à un menu.
 
-Si vous avez terminé ou si vous rencontrez des problèmes vous pouvez télécharger la solution ici.
+Si vous avez terminé ou si vous rencontrez des problèmes vous pouvez télécharger la solution [ici](https://github.com/chris-scientist/gb-platformer-workshop-01/releases/tag/v1.0).
 
 Dans la prochaine étape, c'est-à-dire la deuxième, nous aborderons les déplacements du personnage.
 
