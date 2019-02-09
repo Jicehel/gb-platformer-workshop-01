@@ -297,7 +297,7 @@ Si vous téléversez votre programme, vous devriez voir un joli rectangle bleu e
 
 Nous allons ajouter un menu à notre jeu, nous le compléterons au fil de l'avancée du workshop.
 
-Créons un fichier nommé `Lang.h`, dans ce dernier nous mettrons dans une prochaine étape une version en français et en anglais de tout les textes affichés à l'écran. Dans un premier temps nous nous limiterons au français. Voici le contenu du fichier :
+Créons un fichier nommé `Lang.h`, nous nous limiterons à l'anglais. Voici le contenu du fichier :
 ```
 #ifndef PLATFORMER_LANG
 #define PLATFORMER_LANG
