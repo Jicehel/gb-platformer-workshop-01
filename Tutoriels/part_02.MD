@@ -14,7 +14,7 @@ Je vous invite à télécharger [le code](https://github.com/chris-scientist/gb-
 
 ## Avancer à droite et à gauche
 
-Nous allons voir ici comment implémenter le déplacement vers la droite puis vers la gauche du personnage.
+Nous allons voir ici comment implémenter le déplacement vers la droite puis vers la gauche.
 
 ### Avancer à droite
 
@@ -37,7 +37,7 @@ FIN SI
 
 Pour un déplacement "rapide", nous utiliserons la fonction [gb.buttons.repeat](https://gamebuino.com/fr/academy/reference/gb-buttons-repeat).
 
-Pour faire un incrément de une unité nous utiliserons le raccourci suivant `aCharacter.x++`, ceci est équivalent à `aCharacter.x += 1;`, qui est équivalent à `aCharacter.x = aCharacter.x + 1;`.
+Pour faire un incrément de une unité nous utiliserons le raccourci suivant `aCharacter.x++;`, ceci est équivalent à `aCharacter.x += 1;`, qui est équivalent à `aCharacter.x = aCharacter.x + 1;`.
 
 Dans la définition de la fonction `manageCommands`, dont il faut penser à ajouter le personnage en paramètre, ajoutons le code suivant :
 ```
@@ -89,7 +89,7 @@ Il est important de tester votre programme à chaque fois que vous apportez une 
 
 Pour le saut, le personnage aura un comportement différent selon que vous ayez de l'élan ou non. Ainsi :
 * si le personnage ne prend pas d'élan, alors il sautera sur place ;
-* si le personnage prend de l'élan, alors il réalise un "saut en cloche".
+* si le personnage prend de l'élan, alors il réalisera un "saut en cloche".
 
 Avant de se lancer dans le développement du saut répondant à ses spécifications, voyons la théorie qui nous permettra de réaliser un tel saut.
 
@@ -182,7 +182,7 @@ void rectifyPositionY(Character &aCharacter) {
 }
 ```
 
-Bien ! Maintenant que nous avons apporter les modifications nécessaire au personnage, voyons l'implémentation du saut.
+Bien ! Maintenant que nous avons apporter les modifications nécessaire au personnage, nous devons regarder si nous sommes en collision avec une plateforme ou si nous sautons en dehors de l'écran.
 
 #### Une histoire de collisions
 
@@ -190,7 +190,7 @@ Avant d'implémenter le saut, nous allons écrire deux fonctions :
 * la première permet de détecter une collision avec le sol ;
 * la seconde permet d'interrompre le saut si nous sautons en dehors de l'écran.
 
-Dans un nouveau fichier, que nous pouvons nommer `PhysicsEngine.h`, ajoutons le code suivant :
+Dans un nouveau fichier, que nous nommerons `PhysicsEngine.h`, ajoutons le code suivant :
 ```
 #ifndef PLATFORMER_PHYSICS_ENGINE
 #define PLATFORMER_PHYSICS_ENGINE
@@ -360,7 +360,7 @@ const uint8_t INIT_VERTICAL_VELOCITY = 6; // ... vitesse verticale initiale
 
 ## Conclusion
 
-Vous voici arrivé à la fin de cette deuxième étape : où nous avons ajouter les déplacements au personnage : avancer à gauche, avancer à droite et le saut.
+Vous voici arrivé à la fin de cette deuxième étape : où nous avons ajouté les déplacements pour le personnage : avancer à gauche, avancer à droite et le saut.
 
 Si vous avez terminé ou si vous rencontrez des problèmes vous pouvez télécharger la solution ici.
 
