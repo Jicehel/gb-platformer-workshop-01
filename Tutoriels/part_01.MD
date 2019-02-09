@@ -302,7 +302,7 @@ Créons un fichier nommé `Lang.h`, dans ce dernier nous mettrons dans une proch
 #ifndef PLATFORMER_LANG
 #define PLATFORMER_LANG
 
-static const char * PLAY_FR = "Jouer";
+static const char * PLAY_EN = "Play";
 
 #endif
 ```
@@ -318,12 +318,12 @@ Voici le code de la fonction `paintMenu` à placé dans `Display.h` :
 ```
 const uint8_t paintMenu() {
   const char* items[] = {
-    PLAY_FR
+    PLAY_EN
   };
 
   const uint8_t indexItem = gb.gui.menu("Menu", items);
   uint8_t choice = HOME_STATE;
-  if(items[indexItem] == PLAY_FR) {
+  if(items[indexItem] == PLAY_EN) {
     choice = LAUNCH_PLAY_STATE;
   }
   return choice;
