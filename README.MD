@@ -5,9 +5,7 @@
 
 Ce workshop sera bientôt proposé sur [Gamebuino.com](https://gamebuino.com/) !
 
-Il a pour but de poser les bases du jeu de plateformes. Le programme sera procédurale pour le rendre le plus accessible possible.
-
-De plus, les graphismes seront simplifiés à l'affichage de rectangles.
+Ce premier workshop a pour but de poser les bases du jeu de plateformes. Le programme sera écrit de mannière procédurale pour le rendre le plus accessible possible. De plus, nous nous concentrons sur les grasphismes lors d'un futur workshop, dans celui-ci nous nous contenterons d'afficher des rectangles de couleurs, ceci afin de callibrer le jeu.
 
 ## Sommaire
 
