@@ -42,7 +42,7 @@ void loop() {
       }
 
       if(hero.state != JUMP_STATE && hero.state != PUSH_FOR_JUMP_STATE) {
-        gb.display.println("GRAVITY");
+        gravity(hero);
       } else if(hero.state == JUMP_STATE || hero.state == PUSH_FOR_JUMP_STATE) {
         jump(hero);
       }

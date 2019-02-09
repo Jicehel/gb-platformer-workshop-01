@@ -11,6 +11,7 @@
 
 void jump(Character &aCharacter);
 void jumpMovement(Character &aCharacter);
+void gravity(Character &aCharacter);
 const uint8_t isOnOnePlatform(const Character &aCharacter);
 bool isOutOfWorld(Character &aCharacter);
 

@@ -37,6 +37,25 @@ void jumpMovement(Character &aCharacter) {
   aCharacter.y += aCharacter.vy; // .... on fait évoluer la position verticale
 }
 
+// Chute libre
+void gravity(Character &aCharacter) {
+
+  const uint8_t platformId = isOnOnePlatform(aCharacter);
+  if( platformId == NO_ID ) {
+    // Chute libre
+    aCharacter.oldY = aCharacter.y;
+    aCharacter.vy += GRAVITY;
+    aCharacter.state = FREE_FALL_STATE;
+    aCharacter.y += aCharacter.vy;
+  } else {
+    // en contact avec une structure
+    rectifyPositionY(aCharacter);
+    aCharacter.vy = 0;
+    aCharacter.state = ON_THE_PLATFORM_STATE;
+  }
+  
+}
+
 // Permet de détecter une collision avec le sol (cette fonction évoluera à l'étape suivante)
 const uint8_t isOnOnePlatform(const Character &aCharacter) {
   return ( (aCharacter.y + aCharacter.vy) >= (gb.display.height() - UNDER_CENTER_Y_HERO) ) ? ID_GROUND : NO_ID ;
