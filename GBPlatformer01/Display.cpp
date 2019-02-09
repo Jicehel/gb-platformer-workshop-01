@@ -1,17 +1,18 @@
 // author: chris-scientist
 // created at: 05/02/2019
+// updated at: 09/02/2019
 
 #include "Display.h"
 
 // Afficher un menu
 const uint8_t paintMenu() {
   const char* items[] = {
-    PLAY_FR
+    PLAY_EN
   };
 
   const uint8_t indexItem = gb.gui.menu("Menu", items);
   uint8_t choice = HOME_STATE;
-  if(items[indexItem] == PLAY_FR) {
+  if(items[indexItem] == PLAY_EN) {
     choice = LAUNCH_PLAY_STATE;
   }
   return choice;
