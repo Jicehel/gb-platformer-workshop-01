@@ -7,6 +7,7 @@
 #include "Constantes.h"
 #include "Display.h"
 #include "Commands.h"
+#include "PhysicsEngine.h"
 #include "Character.h"
 
 Character hero;
@@ -36,7 +37,16 @@ void loop() {
       stateOfGame = PLAY_STATE;
       break;
     case PLAY_STATE:
-      stateOfGame = manageCommands(hero);
+      if(hero.state == ON_THE_PLATFORM_STATE) {
+        stateOfGame = manageCommands(hero);
+      }
+
+      if(hero.state != JUMP_STATE && hero.state != PUSH_FOR_JUMP_STATE) {
+        gb.display.println("GRAVITY");
+      } else if(hero.state == JUMP_STATE || hero.state == PUSH_FOR_JUMP_STATE) {
+        jump(hero);
+      }
+      
       paint(hero);
       break;
     default:
