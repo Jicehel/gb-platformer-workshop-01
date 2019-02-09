@@ -9,8 +9,8 @@ Ce premier workshop a pour but de poser les bases du jeu de plateformes. Le prog
 
 ## Sommaire
 
-[Etape 1 - le personnage : création, affichage et gestion d'un menu](Tutoriels/part_01.MD)
-[Etape 2 - gestion des déplacements](Tutoriels/part_02.MD)
+* [Etape 1 - le personnage : création, affichage et gestion d'un menu](Tutoriels/part_01.MD)
+* [Etape 2 - gestion des déplacements](Tutoriels/part_02.MD)
 
 ## Equipe
 
