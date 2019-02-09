@@ -136,11 +136,11 @@ const uint8_t NO_ID = 0;
 const uint8_t ID_GROUND = 1;
 
 // Gravité
-const uint8_t GRAVITY = 1;
+const uint8_t GRAVITY = 2;
 
 // Paramétrage du saut
-const uint8_t HORIZONTAL_VELOCITY = 2; // ...... vitesse horizontale
-const uint8_t INIT_VERTICAL_VELOCITY = 6; // ... vitesse verticale initiale
+const uint8_t HORIZONTAL_VELOCITY = 3; // ...... vitesse horizontale
+const uint8_t INIT_VERTICAL_VELOCITY = 10; // ... vitesse verticale initiale
 ```
 
 Ensuite, ajoutons les attributs suivants au personnage (voir `Character.h`) :
@@ -338,7 +338,25 @@ paint(hero);
 
 Comme vous pouvez le remarquez, le joueur peut agir sur les commandes uniquement s'il est sur une plateforme, soit pour l'instant sur le sol.
 
-Vous pouvez désormais téléverser votre programme vers la console, et vous amuser à sauter partout. Il est à noter que si vous sauter sur le bord de l'écran alors le jeu est bloquer. Nous verrons dans la prochaine étape comment régler ce problème, ceci en implémentant la gravité / chute libre.
+#### Quelques réglages
+
+Vous pouvez désormais téléverser votre programme vers la console, et vous amuser à sauter partout. Il est à noter que si vous sauter sur le bord de l'écran alors le jeu est bloqué. Nous verrons dans la prochaine étape comment régler ce problème, ceci en implémentant la gravité / chute libre.
+
+Amusez vous à changer la gravité, la vitesse horizontale et la vitesse verticale initiale qui se trouve dans `Constantes.h`. Il est important que vous jouez avec pour trouver le bon paramétrage.
+
+J'insiste ! Essayez de changer ces paramètres !
+
+Vous avez sûrement remarquez que le paramétrage fourni est trop important pour un jeu de plateforme qui doit se jouer dans les limites de l'écran uniquement.
+
+Ainsi, dans `Constantes.h`, et après une phase de callibrage, nous avons choisis le paramétrage suivant :
+```
+// Gravité
+const uint8_t GRAVITY = 1;
+
+// Paramétrage du saut
+const uint8_t HORIZONTAL_VELOCITY = 2; // ...... vitesse horizontale
+const uint8_t INIT_VERTICAL_VELOCITY = 6; // ... vitesse verticale initiale
+```
 
 ## Conclusion
 
